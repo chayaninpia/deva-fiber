@@ -1,0 +1,25 @@
+version: '2'
+services:
+  deva-fiber:
+    image: 'deva-fiber'
+    ports:
+      - '8000:8000'
+    networks:
+      - deva-app    
+  mysql-db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: 'deva-power'
+      MYSQL_USER: 'deva'
+      MYSQL_PASSWORD: 'deva'
+      MYSQL_ROOT_PASSWORD: 'deva'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+    networks:
+      - deva-app
+networks:
+  deva-app:
+    name: deva-app
+    driver: bridge

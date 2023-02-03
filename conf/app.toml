@@ -1,0 +1,11 @@
+[server]
+    port = ":8000"
+
+
+[db]
+    host      = "deploy-mysql-db-1"
+	hostLocal = "localhost"
+	port      = "3306"
+	user      = "deva"
+	password  = "deva"
+	dbname    = "deva-power"
